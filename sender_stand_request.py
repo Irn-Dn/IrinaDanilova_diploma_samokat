@@ -14,23 +14,8 @@ def post_new_order(body):
                          headers=data.headers)
 
 
-response = post_new_order(data.order_body)
-
-tr = response.json()["track"]
-print(tr)
-
-
 def get_order_by_track(track):
     # Составление полного URL пути к данным таблицы пользователей
     # путем конкатенации базового URL сервиса и конечной точки таблицы пользователей
     # Возвращает объект ответа от сервера
     return requests.get(configuration.URL_SERVICE + configuration.GET_ORDER_BY_TRACK_PATH + str(track))
-
-
-response = get_order_by_track(tr)
-print(response.json())
-
-
-
-
-
